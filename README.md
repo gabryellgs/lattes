@@ -48,7 +48,7 @@ O **Lattes de Bolso** é um app que apresenta informações acadêmicas e técni
 npm install
 
 # 🚀 Inicie o app
-npm start
+npx expo start
 ```
 
 Escaneie o QR Code com o **Expo Go** no celular, ou pressione:
