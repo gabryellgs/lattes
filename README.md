@@ -68,5 +68,4 @@ Escaneie o QR Code com o **Expo Go** no celular, ou pressione:
 ---
 
 ## 📄 Licença
-
-Projeto de uso pessoal desenvolvido para fins acadêmicos.
+Este projeto é de uso pessoal e foi desenvolvido para fins acadêmicos. Todos os direitos reservados.
