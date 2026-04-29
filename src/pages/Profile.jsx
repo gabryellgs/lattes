@@ -1,61 +1,52 @@
-import React from 'react';
-import { View, Text, Image, ScrollView, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { ScrollView, View, StyleSheet } from 'react-native';
 
-const GOLD = '#e5c97e';
-const DARK = '#0f0f0f';
+import { ProfileHeader } from '../components/profile/ProfileHeader';
+import { InfoRow }       from '../components/profile/InfoRow';
+import { SectionTitle }  from '../components/profile/SectionTitle';
+import { TechPill }      from '../components/profile/TechPill';
+import { BioCard }       from '../components/profile/BioCard';
 
 export default function Perfil() {
   return (
     <ScrollView style={styles.container}>
-
-      {/* Header escuro */}
-      <View style={styles.header}>
-        <View style={styles.avatarRing}>
-          <Image
-            source={require('../../assets/perfil.png')}
-            style={styles.avatar}
-          />
-        </View>
-        <Text style={styles.name}>Gabryell da Silva{'\n'}Gonçalves</Text>
-        <View style={styles.roleBadge}>
-          <Ionicons name="code-slash-outline" size={11} color={GOLD} />
-          <Text style={styles.roleText}>  FULL-STACK DEVELOPER</Text>
-        </View>
-      </View>
-
-      {/* Body */}
+      <ProfileHeader />
       <View style={styles.body}>
 
-        <Text style={styles.sectionLabel}>Informações</Text>
+        <SectionTitle title="Informações" />
         <InfoRow icon="calendar-outline" title="17 de fevereiro de 2004" sub="Data de nascimento" />
-        <InfoRow icon="location-outline" title="Canguaretama — RN" sub="Localização" />
-        <InfoRow icon="school-outline" title="IFRN" sub="Técnico em Informática" />
+        <InfoRow icon="location-outline" title="Canguaretama — RN"       sub="Localização" />
+        <InfoRow icon="school-outline"   title="IFRN"                    sub="Sistemas para Internet" />
 
         <View style={styles.divider} />
 
-        <Text style={styles.sectionLabel}>Sobre</Text>
-        <View style={styles.bio}>
-          <Ionicons name="person-outline" size={14} color={GOLD} style={{ marginBottom: 6 }} />
-          <Text style={styles.bioText}>
-            Estudante de informática no IFRN, focado em React, Laravel
-            e desenvolvimento web moderno.
-          </Text>
-        </View>
+        <SectionTitle title="Sobre" />
+        <BioCard />
 
         <View style={styles.divider} />
 
-        <Text style={styles.sectionLabel}>Tecnologias</Text>
+        <SectionTitle title="Tecnologias" />
         <View style={styles.techGrid}>
-          <TechPill icon="logo-react" label="React" highlight />
-          <TechPill icon="phone-portrait-outline" label="React Native" highlight />
-          <TechPill icon="server-outline" label="Laravel" />
-          <TechPill icon="logo-javascript" label="JavaScript" />
-          <TechPill icon="logo-django" label="Django" />
-          <TechPill icon="logo-python" label="Python" />
-          <TechPill icon="logo-nodejs" label="Node.js" />
-          <TechPill icon="logo-github" label="GitHub" />
-          <TechPill icon="java" label="java />" />
+          <TechPill icon="react"               label="React"        highlight library="MaterialCommunityIcons" />
+          <TechPill icon="react"               label="React Native" highlight library="MaterialCommunityIcons" />
+          <TechPill icon="language-typescript" label="TypeScript"   library="MaterialCommunityIcons" />
+          <TechPill icon="language-javascript" label="JavaScript"   library="MaterialCommunityIcons" />
+          <TechPill icon="language-css3"       label="Tailwind CSS" library="MaterialCommunityIcons" />
+          <TechPill icon="bootstrap"           label="Bootstrap"    library="MaterialCommunityIcons" />
+          <TechPill icon="nodejs"              label="Node.js"      library="MaterialCommunityIcons" />
+          <TechPill icon="laravel"             label="Laravel"      library="MaterialCommunityIcons" />
+          <TechPill icon="language-python"     label="Python"       library="MaterialCommunityIcons" />
+          <TechPill icon="language-java"       label="Java"         library="MaterialCommunityIcons" />
+          <TechPill icon="language-php"        label="PHP"          library="MaterialCommunityIcons" />
+          <TechPill icon="language-c"          label="C"            library="MaterialCommunityIcons" />
+          <TechPill icon="database"            label="MySQL"        library="MaterialCommunityIcons" />
+          <TechPill icon="database"            label="PostgreSQL"   library="MaterialCommunityIcons" />
+          <TechPill icon="leaf"                label="MongoDB"      library="MaterialCommunityIcons" />
+          <TechPill icon="database-outline"    label="SQLite"       library="MaterialCommunityIcons" />
+          <TechPill icon="git"                 label="Git"          library="MaterialCommunityIcons" />
+          <TechPill icon="github"              label="GitHub"       library="MaterialCommunityIcons" />
+          <TechPill icon="cloud"               label="AWS"          library="MaterialCommunityIcons" />
+          <TechPill icon="docker"              label="Docker"       library="MaterialCommunityIcons" />
+          <TechPill icon="api"                 label="REST API"     library="MaterialCommunityIcons" />
         </View>
 
       </View>
@@ -63,122 +54,28 @@ export default function Perfil() {
   );
 }
 
-function InfoRow({ icon, title, sub }) {
-  return (
-    <View style={styles.infoRow}>
-      <View style={styles.infoIcon}>
-        <Ionicons name={icon} size={16} color="#b8860b" />
-      </View>
-      <View>
-        <Text style={styles.infoTitle}>{title}</Text>
-        <Text style={styles.infoSub}>{sub}</Text>
-      </View>
-    </View>
-  );
-}
-
-function TechPill({ icon, label, highlight }) {
-  return (
-    <View style={[styles.techPill, highlight && styles.techPillHighlight]}>
-      <Ionicons
-        name={icon}
-        size={13}
-        color={highlight ? GOLD : '#555'}
-        style={{ marginRight: 5 }}
-      />
-      <Text style={[styles.techText, highlight && styles.techTextHighlight]}>
-        {label}
-      </Text>
-    </View>
-  );
-}
-
+// ← ISSO ESTAVA FALTANDO
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f4f0' },
-
-  // Header
-  header: {
-    backgroundColor: DARK,
-    paddingTop: 50,
-    paddingBottom: 28,
-    alignItems: 'center',
-    paddingHorizontal: 20,
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f4f0',
   },
-  avatarRing: {
-    width: 94, height: 94, borderRadius: 47,
-    borderWidth: 2, borderColor: GOLD,
-    alignItems: 'center', justifyContent: 'center',
-    marginBottom: 14,
-  },
-  avatar: { width: 82, height: 82, borderRadius: 41 },
-  name: {
-    fontSize: 18, fontWeight: '800',
-    color: '#f5f0e8', textAlign: 'center', lineHeight: 24,
-  },
-  roleBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 8,
-    paddingHorizontal: 12, paddingVertical: 5,
-    borderRadius: 20,
-    backgroundColor: '#1c1c1a',
-    borderWidth: 0.5, borderColor: GOLD + '55',
-  },
-  roleText: { fontSize: 10, color: GOLD, letterSpacing: 1 },
-
-  // Body
   body: {
     backgroundColor: '#fff',
-    margin: 16, borderRadius: 16,
+    margin: 16,
+    borderRadius: 16,
     padding: 20,
-    borderWidth: 0.5, borderColor: '#e0ddd6',
+    borderWidth: 0.5,
+    borderColor: '#e0ddd6',
   },
-  sectionLabel: {
-    fontSize: 10, fontWeight: '500',
-    color: '#888', letterSpacing: 1,
-    textTransform: 'uppercase',
-    marginBottom: 8,
+  divider: {
+    height: 0.5,
+    backgroundColor: '#e0ddd6',
+    marginVertical: 16,
   },
-
-  // Info rows
-  infoRow: {
-    flexDirection: 'row', alignItems: 'center',
-    gap: 10, padding: 10,
-    backgroundColor: '#f5f4f0',
-    borderRadius: 10, marginBottom: 6,
+  techGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
   },
-  infoIcon: {
-    width: 32, height: 32, borderRadius: 8,
-    backgroundColor: '#fdf3d8',
-    alignItems: 'center', justifyContent: 'center',
-  },
-  infoTitle: { fontSize: 13, color: '#1a1a18', fontWeight: '500' },
-  infoSub: { fontSize: 11, color: '#888', marginTop: 1 },
-
-  divider: { height: 0.5, backgroundColor: '#e0ddd6', marginVertical: 16 },
-
-  // Bio
-  bio: {
-    padding: 12, backgroundColor: '#f5f4f0',
-    borderRadius: 10,
-    borderLeftWidth: 2, borderLeftColor: GOLD,
-    borderTopLeftRadius: 0, borderBottomLeftRadius: 0,
-  },
-  bioText: { fontSize: 13, color: '#555', lineHeight: 20 },
-
-  // Tech pills
-  techGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  techPill: {
-    flexDirection: 'row', alignItems: 'center',
-    paddingHorizontal: 12, paddingVertical: 7,
-    borderRadius: 20,
-    backgroundColor: '#f5f4f0',
-    borderWidth: 0.5, borderColor: '#d0cec8',
-  },
-  techPillHighlight: {
-    backgroundColor: DARK,
-    borderColor: GOLD + '44',
-  },
-  techText: { fontSize: 12, color: '#333' },
-  techTextHighlight: { color: GOLD },
 });

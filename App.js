@@ -6,7 +6,7 @@ import Home from './src/pages/Home';
 import Perfil from './src/pages/Profile';
 import Education from './src/pages/Education';
 import Courses from './src/pages/Courses';
-import AProductions from './src/pages/AProductions';
+import Formations from './src/pages/Formations';
 import Skills from './src/pages/Skills';
 import Links from './src/pages/Links';
 
@@ -20,7 +20,7 @@ export default function App() {
         <Stack.Screen name="Perfil" component={Perfil} />
         <Stack.Screen name="Education" component={Education} />
         <Stack.Screen name="Courses" component={Courses} />
-        <Stack.Screen name="AProductions" component={AProductions} />
+        <Stack.Screen name="Formations" component={Formations} />
         <Stack.Screen name="Skills" component={Skills} />
         <Stack.Screen name="Links" component={Links} />
 
